@@ -53,11 +53,4 @@ Connects to William's lifestyle needs — busier zip codes plausibly correlate w
 - **Test:** `groupby("zipcode").size()` vs. average `price` — simple counting and aggregation
 - **Limitation:** no direct transit/amenities data — the demand proxy must be stated explicitly as an assumption
 
----
 
-## Notes & Assumptions
-
-- `price` is not part of the `king_county_house_details` table shown in the schema — it is assumed to come from the second table via the JOIN.
-- No price-segment figures (e.g. "$250k–$450k") are used, since this range is not derivable from the dataset or given in the assignment.
-- H3 and H4 intentionally avoid lat/long-based distance calculations in favor of simple `zipcode`-level aggregations, per the "keep it to simple calculations" guidance.
-- The geographic-proximity constraint ("houses should be close to each other") is not yet covered by a dedicated hypothesis — can be added separately if needed.
