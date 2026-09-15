@@ -2,7 +2,9 @@
 
 *2 people, wants two houses: one in the country (best timing, non-renovated) and one in the city (fast, central location). Houses should be reasonably close to each other.*
 
----
+
+
+
 
 ## Country House — William Rodriguez
 
@@ -28,7 +30,9 @@ Supports William's need for space, privacy, and a quiet retreat with room for hi
   `distance = sqrt((lat - lat_downtown)² + (long - long_downtown)²)`
   then plot against `sqft_lot` and check correlation
 
----
+
+
+
 
 ## City House — William Rodriguez
 
