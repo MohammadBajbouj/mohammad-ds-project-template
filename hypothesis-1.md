@@ -13,7 +13,7 @@ around 35 - 45 Years old
         - needs time-out sometimes (county)
         - owns dog!    
 
-    b) fast & central location
+    b) city house: fast & central location
         - Has job or business in the city
         - short distance to public transportation (or high way)
         - seaking afterwork activies (cafe, bar etc)
