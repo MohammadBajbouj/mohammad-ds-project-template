@@ -9,71 +9,71 @@ Non-renovated houses (yr_renovated = 0) are on average cheaper than renovated ho
 
 ## Criteria Used
 
-- **Location type:** Rural, classified via USDA/WWAMI RUCA codes (same authoritative source used for H3), not a hardcoded zip list — 849 houses qualify as Rural out of 21,597 total
+- **Location type:** Rural — zip codes 98038, 98042, 98023 (William's known Rural zip codes)
 - **Renovation status:** Non-Renovated (matches William's "polish doesn't matter" preference)
-- **Size range:** Medium (1,740 - 2,550 sqft living, middle tertile of Rural homes)
+- **Size range:** Medium (1,677 - 2,260 sqft living, middle tertile of Rural homes)
 - Sorted by price ascending, lowest two selected as best value
 
 ## Statistical Result (Medium tier)
 
-- Non-Renovated median: $449,950  ·  Renovated median: $451,500 (n = 279: 227 non-renovated, 52 renovated)
-- Mann-Whitney U p-value: 0.752 — **not statistically significant**
-- Across all three size tiers, the direction is inconsistent: Non-Renovated is pricier for Small (+$5,845) and Large (+$12,500), and only marginally cheaper for Medium (-$1,550). **H1 is not supported** by the data once Rural is defined properly via RUCA codes.
+- Non-Renovated median: $300,000  ·  Renovated median: $308,000 (n = 539: 448 non-renovated, 91 renovated)
+- Mann-Whitney U p-value: 0.377 — **not statistically significant**
+- Across all three size tiers, the direction is inconsistent: Non-Renovated is pricier for Small (+$2,500), and cheaper for Medium (-$8,000) and Large (-$21,750). The overall picture is mixed rather than a clean confirmation of H1.
 
 ## House #1
 
 | Field | Value |
 |---|---|
-| Zipcode | 98014 |
-| Price | $265,000 |
-| Living Area | 1,850 sqft |
+| Zipcode | 98023 |
+| Price | $182,700 |
+| Living Area | 1,740 sqft |
 | Bedrooms | 3 |
-| Bathrooms | 2.0 |
-| Year Built | 1992 |
-| Lot Size | 16,535 sqft |
+| Bathrooms | 2.25 |
+| Year Built | 1978 |
+| Lot Size | 6,650 sqft |
 | Renovation Status | Non-Renovated |
 
 **Why William will love it:**
-- Genuinely rural (RUCA-classified) = quiet, no close neighbors
+- Rural location = quiet, no close neighbors
 - Non-renovated = lower price, matches "polish doesn't matter" preference
-- Generous lot size for space and privacy
+- Medium-size living area, more bathrooms than House #2
 - Lowest price in the matching candidate pool
 
 ## House #2
 
 | Field | Value |
 |---|---|
-| Zipcode | 98045 |
-| Price | $271,000 |
-| Living Area | 1,800 sqft |
-| Bedrooms | 4 |
-| Bathrooms | 1.5 |
-| Year Built | 1977 |
-| Lot Size | 9,576 sqft |
+| Zipcode | 98023 |
+| Price | $185,000 |
+| Living Area | 1,990 sqft |
+| Bedrooms | 5 |
+| Bathrooms | 1.75 |
+| Year Built | 1955 |
+| Lot Size | 27,810 sqft |
 | Renovation Status | Non-Renovated |
 
 **Why William will love it:**
-- Genuinely rural (RUCA-classified) = quiet, no close neighbors
+- Rural location = quiet, no close neighbors
 - Non-renovated = lower price, matches "polish doesn't matter" preference
-- More bedrooms (4) for a similar price to House #1
-- Second-lowest price in the matching candidate pool
+- Much larger lot (27,810 sqft) = extra space and privacy for William and his dog
+- More bedrooms (5) for near-identical price to House #1
 
 ## Comparison
 
 | Feature | House #1 | House #2 |
 |---|---|---|
-| Zipcode | 98014 | 98045 |
-| Price | $265,000 | $271,000 |
-| Living Area (sqft) | 1,850 | 1,800 |
-| Bedrooms | 3 | 4 |
-| Bathrooms | 2.0 | 1.5 |
-| Year Built | 1992 | 1977 |
-| Lot Size (sqft) | 16,535 | 9,576 |
+| Zipcode | 98023 | 98023 |
+| Price | $182,700 | $185,000 |
+| Living Area (sqft) | 1,740 | 1,990 |
+| Bedrooms | 3 | 5 |
+| Bathrooms | 2.25 | 1.75 |
+| Year Built | 1978 | 1955 |
+| Lot Size (sqft) | 6,650 | 27,810 |
 
 ## Note
 
-Earlier versions of this analysis used a hardcoded list of 3 zip codes to define "Rural," which produced a much smaller, less representative sample. This version uses the same RUCA-code classification as H3 for consistency and rigor. The corrected result is more honest: William's "non-renovated = cheaper" assumption doesn't hold up once measured properly, so price alone shouldn't be the deciding factor between these two homes — both are reasonable, similarly-priced options rather than one being a clear "better value."
+Both properties fall in the same zipcode (98023) — worth double-checking whether this reflects a genuine concentration of matching Rural/Non-Renovated/Medium-size homes in that area, or a narrow candidate pool worth widening. This version uses the same 3-zip-code Rural definition as the original dataset's `location_type` column (98038, 98042, 98023). A RUCA-code-based alternative was also tested — see project history — and gave a materially different result (5 different zip codes, different candidates). Kept here for comparison while a final decision is made on which classification to use going forward.
 
 ---
 
-*H1 Analysis - Source: `notebooks/04a_H1_eda.ipynb` (cells 12, 23, 27)*
+*H1 Analysis - Source: `notebooks/04a_H1_eda.ipynb` (cells 12, 21, 25)*
