@@ -74,6 +74,10 @@ Non-renovated houses (yr_renovated = 0) are on average cheaper than renovated ho
 
 Both properties fall in the same zipcode (98023) — worth double-checking whether this reflects a genuine concentration of matching Rural/Non-Renovated/Medium-size homes in that area, or a narrow candidate pool worth widening. This version uses the same 3-zip-code Rural definition as the original dataset's `location_type` column (98038, 98042, 98023). A RUCA-code-based alternative was also tested — see project history — and gave a materially different result (5 different zip codes, different candidates). Kept here for comparison while a final decision is made on which classification to use going forward.
 
+## Methodology Check: Can Zip Code Alone Identify Rural vs Urban?
+
+We tested whether patterns already present in the housing data — lot size, distance from downtown, number of sales per zip — could reliably classify Rural vs Urban zip codes on their own, without an external source like RUCA. The best possible single-feature threshold (average lot size) still missed 3 of the 5 zip codes RUCA classifies as genuinely Rural, and some zip codes with very large average lots (over 38,000 sqft) turned out to be Urban while some with small lots turned out to be Rural. The high "accuracy" scores this produced were misleading, since guessing "Urban" for every zip code already scores over 90% given how imbalanced the split is. **Conclusion: zip code alone cannot reliably distinguish Rural from Urban in this dataset** — the 3-zip hardcoded list used above (and the original `location_type` column) is a simplification, not a validated classification.
+
 ---
 
 *H1 Analysis - Source: `notebooks/04a_H1_eda.ipynb` (cells 12, 21, 25)*
