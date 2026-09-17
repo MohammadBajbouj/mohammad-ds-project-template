@@ -18,21 +18,24 @@ By the end of this repository, you should be able to:
 Work through the files in order. Start with the assignment to understand the goal, follow the workflow as your guide, fetch the data, then run your analysis in the EDA notebook.
 
 > [!TIP]
-> The data lives in the **eda** schema of the database and is split across two tables. Before fetching anything in code, connect with DBeaver and explore that schema: inspect both tables, check [**Column Names**](column_names.md) for what each field means, and work out how to join them. Once you have a working `JOIN`, use it as the query in [**03 - Fetching the Data**](03_fetching_the_data_eda.ipynb) to load the combined dataset into pandas.
+> The data lives in the **eda** schema of the database and is split across two tables. Before fetching anything in code, connect with DBeaver and explore that schema: inspect both tables, check [**Column Names**](column_names.md) for what each field means, and work out how to join them. Once you have a working `JOIN`, use it as the query in [**03 - Fetching the Data**](notebooks/03_fetching_the_data_eda.ipynb) to load the combined dataset into pandas.
 
-| File / Folder                                                   | Description                                                                                                              |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| [**01 - Assignment**](01_assignment.md)                      | The project brief: the dataset, your tasks, deliverables, and the list of clients to choose from.                        |
-| [**02 - Workflow**](02_workflow.md)                          | A recommended EDA workflow, from understanding and questioning the data through cleaning, relationships, and presenting. |
-| [**03 - Fetching the Data**](03_fetching_the_data_eda.ipynb) | Connect to the PostgreSQL database with psycopg2 and SQLAlchemy, then pull the data into a pandas DataFrame.             |
-| [**04 - EDA**](04_eda.ipynb)                                 | Starter notebook for your exploratory data analysis.                                                                     |
-| [**Column Names**](column_names.md)                          | Data dictionary describing each column in the King County housing dataset.                                               |
+| File / Folder                                                              | Description                                                                                                              |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| [**01 - Assignment**](01_assignment.md)                                  | The project brief: the dataset, your tasks, deliverables, and the list of clients to choose from.                        |
+| [**02 - Workflow**](02_workflow.md)                                       | A recommended EDA workflow, from understanding and questioning the data through cleaning, relationships, and presenting. |
+| [**03 - Fetching the Data**](notebooks/03_fetching_the_data_eda.ipynb)    | Connect to the PostgreSQL database with psycopg2 and SQLAlchemy, then pull the data into a pandas DataFrame.             |
+| [**04 - EDA**](notebooks/04_eda.ipynb)                                    | Starter notebook for your exploratory data analysis.                                                                     |
+| [**Column Names**](column_names.md)                                       | Data dictionary describing each column in the King County housing dataset.                                               |
 
 ### Additional Folders and Files
 
 | File / Folder                           | Description                                                                                    |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| [**Data**](data/)                    | Where you save the dataset CSV. The folder is tracked, but its data files are kept out of git. |
+| [**notebooks/**](notebooks/)         | All analysis notebooks (data fetching, EDA, hypothesis-specific deep dives).                   |
+| [**data/**](data/)                   | Where you save the dataset CSV. The folder is tracked, but its data files are kept out of git. |
+| [**data/processed/**](data/processed/) | Cleaned/derived datasets produced by the notebooks.                                          |
+| [**reports/**](reports/)             | Presentations, methodology documents, and generated figures/maps.                              |
 | [**.env.example**](.env.example)     | Template for the database credentials. Copy it to `.env` and fill in your values.            |
 | [**pyproject.toml**](pyproject.toml) | Project configuration and dependencies.                                                        |
 | [**uv.lock**](uv.lock)               | Dependency lock file.                                                                          |
@@ -104,7 +107,7 @@ The data-fetching notebook reads the database connection details from a `.env` f
 cp .env.example .env
 ```
 
-Open `.env` and replace the placeholders with the credentials for the King County housing database (the same ones you use in DBeaver). These values feed [**03 - Fetching the Data**](03_fetching_the_data_eda.ipynb).
+Open `.env` and replace the placeholders with the credentials for the King County housing database (the same ones you use in DBeaver). These values feed [**03 - Fetching the Data**](notebooks/03_fetching_the_data_eda.ipynb).
 
 > [!CAUTION]
 > `.env` holds secrets and must never be committed. It is already listed in `.gitignore`. Only `.env.example`, with placeholder values, belongs in the repository.
