@@ -9,7 +9,7 @@ Non-renovated houses (yr_renovated = 0) are on average cheaper than renovated ho
 
 ## Criteria Used
 
-- **Location type:** Rural, classified via USDA/WWAMI RUCA codes (same authoritative source used for H3), not a hardcoded zip list — 849 houses across 49 zip codes qualify as Rural out of 21,597 total
+- **Location type:** Rural, classified via USDA/WWAMI RUCA codes (same authoritative source used for H3), not a hardcoded zip list — 849 houses qualify as Rural out of 21,597 total
 - **Renovation status:** Non-Renovated (matches William's "polish doesn't matter" preference)
 - **Size range:** Medium (1,740 - 2,550 sqft living, middle tertile of Rural homes)
 - Sorted by price ascending, lowest two selected as best value
