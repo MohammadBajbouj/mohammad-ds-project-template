@@ -9,75 +9,83 @@ Non-renovated houses (yr_renovated = 0) are on average cheaper than renovated ho
 
 ## Criteria Used
 
-- **Location type:** Rural — zip codes 98038, 98042, 98023 (William's known Rural zip codes)
+- **Location type:** Rural — zip codes 98010, 98014, 98019, 98022, 98024, 98045, 98070, identified from housing density (sales per km², using the bounding box of each zip code's lat/long) computed directly from the original dataset — no external classification (e.g. RUCA) or hardcoded list used. See Methodology below.
 - **Renovation status:** Non-Renovated (matches William's "polish doesn't matter" preference)
-- **Size range:** Medium (1,677 - 2,260 sqft living, middle tertile of Rural homes)
+- **Size range:** Medium (1,570 - 2,280 sqft living, middle tertile of Rural homes)
 - Sorted by price ascending, lowest two selected as best value
 
-## Statistical Result (Medium tier)
+## Statistical Result (by size tier)
 
-- Non-Renovated median: $300,000  ·  Renovated median: $308,000 (n = 539: 448 non-renovated, 91 renovated)
-- Mann-Whitney U p-value: 0.377 — **not statistically significant**
-- Across all three size tiers, the direction is inconsistent: Non-Renovated is pricier for Small (+$2,500), and cheaper for Medium (-$8,000) and Large (-$21,750). The overall picture is mixed rather than a clean confirmation of H1.
+| Size Tier | n (non-renovated / renovated) | Non-Renovated median | Renovated median | Difference | Mann-Whitney U p-value |
+|---|---|---|---|---|---|
+| Small | 355 (263 / 92) | $278,000 | $275,000 | +$3,000 | 0.621 — not significant |
+| Medium | 354 (277 / 77) | $375,000 | $370,000 | +$5,000 | 0.918 — not significant |
+| Large | 355 (284 / 71) | $535,000 | $540,000 | -$5,000 | 0.976 — not significant |
+
+None of the three size tiers show a statistically significant difference (all p > 0.6). The direction of the price gap is inconsistent (non-renovated is pricier for Small and Medium, cheaper for Large) and the magnitudes are small relative to typical price levels — **the data does not support H1** for Rural properties in this dataset.
 
 ## House #1
 
 | Field | Value |
 |---|---|
-| Zipcode | 98023 |
-| Price | $182,700 |
-| Living Area | 1,740 sqft |
+| Zipcode | 98022 |
+| Price | $195,000 |
+| Living Area | 1,580 sqft |
 | Bedrooms | 3 |
-| Bathrooms | 2.25 |
-| Year Built | 1978 |
-| Lot Size | 6,650 sqft |
+| Bathrooms | 1.75 |
+| Year Built | 1979 |
+| Lot Size | 7,875 sqft |
 | Renovation Status | Non-Renovated |
 
 **Why William will love it:**
 - Rural location = quiet, no close neighbors
 - Non-renovated = lower price, matches "polish doesn't matter" preference
-- Medium-size living area, more bathrooms than House #2
-- Lowest price in the matching candidate pool
+- Medium-size living area, tied for lowest price in the matching candidate pool
 
 ## House #2
 
 | Field | Value |
 |---|---|
-| Zipcode | 98023 |
-| Price | $185,000 |
-| Living Area | 1,990 sqft |
-| Bedrooms | 5 |
+| Zipcode | 98022 |
+| Price | $195,000 |
+| Living Area | 1,570 sqft |
+| Bedrooms | 3 |
 | Bathrooms | 1.75 |
-| Year Built | 1955 |
-| Lot Size | 27,810 sqft |
+| Year Built | 1991 |
+| Lot Size | 8,459 sqft |
 | Renovation Status | Non-Renovated |
 
 **Why William will love it:**
 - Rural location = quiet, no close neighbors
 - Non-renovated = lower price, matches "polish doesn't matter" preference
-- Much larger lot (27,810 sqft) = extra space and privacy for William and his dog
-- More bedrooms (5) for near-identical price to House #1
+- Newer build (1991 vs 1979) and slightly larger lot, at the same price as House #1
 
 ## Comparison
 
 | Feature | House #1 | House #2 |
 |---|---|---|
-| Zipcode | 98023 | 98023 |
-| Price | $182,700 | $185,000 |
-| Living Area (sqft) | 1,740 | 1,990 |
-| Bedrooms | 3 | 5 |
-| Bathrooms | 2.25 | 1.75 |
-| Year Built | 1978 | 1955 |
-| Lot Size (sqft) | 6,650 | 27,810 |
+| Zipcode | 98022 | 98022 |
+| Price | $195,000 | $195,000 |
+| Living Area (sqft) | 1,580 | 1,570 |
+| Bedrooms | 3 | 3 |
+| Bathrooms | 1.75 | 1.75 |
+| Year Built | 1979 | 1991 |
+| Lot Size (sqft) | 7,875 | 8,459 |
 
 ## Note
 
-Both properties fall in the same zipcode (98023) — worth double-checking whether this reflects a genuine concentration of matching Rural/Non-Renovated/Medium-size homes in that area, or a narrow candidate pool worth widening. This version uses the same 3-zip-code Rural definition as the original dataset's `location_type` column (98038, 98042, 98023). A RUCA-code-based alternative was also tested — see project history — and gave a materially different result (5 different zip codes, different candidates). Kept here for comparison while a final decision is made on which classification to use going forward.
+Both properties fall in the same zip code (98022) — it's the only Rural zip code (under this density-based definition) with matching Non-Renovated/Medium-size candidates at this price point. This is a narrow candidate pool; widening the criteria (e.g. adjacent size tiers) would surface more options if needed.
 
-## Methodology Check: Can Zip Code Alone Identify Rural vs Urban?
+## Methodology: Identifying Rural vs Urban from the Original Dataset
 
-We tested whether patterns already present in the housing data — lot size, distance from downtown, number of sales per zip — could reliably classify Rural vs Urban zip codes on their own, without an external source like RUCA. The best possible single-feature threshold (average lot size) still missed 3 of the 5 zip codes RUCA classifies as genuinely Rural, and some zip codes with very large average lots (over 38,000 sqft) turned out to be Urban while some with small lots turned out to be Rural. The high "accuracy" scores this produced were misleading, since guessing "Urban" for every zip code already scores over 90% given how imbalanced the split is. **Conclusion: zip code alone cannot reliably distinguish Rural from Urban in this dataset** — the 3-zip hardcoded list used above (and the original `location_type` column) is a simplification, not a validated classification.
+Earlier attempts to classify Rural vs Urban from single features already in the housing data — lot size, distance from downtown, or sales count per zip — did not work: no single-feature threshold reliably separated the two groups (see project history for details).
+
+Instead, we used **housing density**: for each zip code, we approximate its land area from the bounding box of its houses' lat/long coordinates (using the original dataset's own `zipcode`, `lat`, and `long` columns — no external data), then compute sales per km². The idea: sparser areas (fewer sales per km²) are more likely Rural.
+
+The Rural/Urban split point itself is also found directly from the data, not chosen by hand: we sort all 70 zip codes by density and look for the largest natural gap in the (log-scale) distribution among the sparsest third of zip codes. This gap falls at 1.04 houses/km², separating 7 zip codes (98010, 98014, 98019, 98022, 98024, 98045, 98070) as Rural from the remaining 63.
+
+**Validation (for reporting only — not used to build the classification):** compared against the official RUCA rural/urban classification, this density-based method correctly identifies 4 of the 5 RUCA-Rural zip codes (80% recall) and reaches 94.3% overall accuracy — beating the naive "always guess Urban" baseline of 92.9%. This is a real, if imperfect, improvement over single-feature approaches, and unlike the 3-zip-code hardcoded list used in earlier drafts of this analysis, it is derived entirely from patterns in the original dataset rather than picked by hand.
 
 ---
 
-*H1 Analysis - Source: `notebooks/04a_H1_eda.ipynb` (cells 12, 21, 25)*
+*H1 Analysis - Source: `notebooks/04a_H1_eda.ipynb` (density-based Rural/Urban classification, renovation-effect boxplots, Mann-Whitney U tests, and candidate selection)*
