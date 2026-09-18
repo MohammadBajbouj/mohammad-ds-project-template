@@ -1,0 +1,67 @@
+
+================================================================================
+HOUSE RECOMMENDATIONS FOR WILLIAM RODRIGUEZ
+Based on H2 Analysis: Lot Size vs Distance from Downtown
+================================================================================
+
+HOUSE #1: SUBURBAN 'COMFORTABLE COUNTRY HOME'
+--------------------------------------------------------------------------------
+
+Distance from downtown: 14.56 miles
+Zipcode: 98070
+Price: $849,900
+Lot Size: 641,203 sq ft
+Living Area: 2,280 sq ft
+Bedrooms: 2
+Bathrooms: 2
+Year Built: 1990
+Renovation Status: Non-Renovated
+
+Why William will love it:
+✓ Suburban location (14.56 mi from downtown) = QUIET and peaceful
+✓ Large lot (641,203 sq ft) = SPACE and PRIVACY for outdoor activities
+✓ Confirmed by H2 analysis: This distance provides larger lots!
+✓ Perfect for 'Country House' persona
+
+
+HOUSE #2: RURAL 'ULTIMATE PRIVACY ESTATE'
+--------------------------------------------------------------------------------
+
+Distance from downtown: 29.66 miles
+Zipcode: 98022
+Price: $700,000
+Lot Size: 1,651,359 sq ft
+Living Area: 1,300 sq ft
+Bedrooms: 4
+Bathrooms: 1
+Year Built: 1920
+Renovation Status: Non-Renovated
+
+Why William will love it:
+✓ Rural location (29.66 mi from downtown) = MAXIMUM quiet and solitude
+✓ HUGE lot (1,651,359 sq ft) = MAXIMUM privacy and space
+✓ H2 strongly confirms: Maximum distance = Maximum lot size!
+✓ Ideal for someone seeking complete privacy and space
+
+
+COMPARISON
+--------------------------------------------------------------------------------
+Feature                 | House #1 (Suburban)    | House #2 (Rural)
+Distance (miles)        | 14.56               | 29.66
+Lot Size (sq ft)        | 641,203           | 1,651,359
+Price                   | $849,900            | $700,000
+Living Area (sq ft)     | 2,280            | 1,300
+Year Built              | 1990                | 1920
+
+H2 CONCLUSION
+--------------------------------------------------------------------------------
+Both houses CONFIRM H2 Hypothesis:
+"Lot size varies significantly with distance from downtown Seattle"
+
+- Correlation: r = 0.2435 (statistically significant, p-value = 1.64e-264)
+- Effect: +1,440 sq ft per mile from downtown
+- Recommendation: William should look 10+ miles from downtown for larger lots
+
+================================================================================
+H2 ANALYSIS COMPLETE ✓
+================================================================================
